@@ -18,7 +18,11 @@ ASSET_MANAGER.downloadAll(function () {
 
 	// xStart, yStart, width, height, frameCount, frameDuration, framePadding, reverse, loop
 	theDragon = new Animator(AssetManager.getAsset("./sprites/reddragonflyright0.png",
-	0, 160, 8, 8, 8, 8, 0.2, 0, 
+	150, 150, // (x,y) cords
+	200, 200, // (x,y) size
+	16, 8,    // frameCount and frameDuration,
+	0.2,      // framePadding
+	false, true
 	))
 
 	gameEngine.addEntity(theDragon);
