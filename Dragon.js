@@ -4,21 +4,62 @@ class Dragon {
 
         this.game.Dragon = this;
 
-        // spritesheet
-        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/right.png");
-
-        this.size = 100; //if I ever want to try to scale it.
-        this.facing = 0; // 0 = right, 1 = down, 2 = left, 3 = up
-        this.framesPerMin = 10 // I'm using this many frames per second
-
+        this.x = x;
+        this.y = y;
+        this.sizeX = 200;
+        this.sizeY = 200;
+        this.frameCount = 16
+        this.frameDuration = 8
+        this.framePadding = 0.2
 
         this.animations = [];
         this.loadAnimations();
     };
 
     loadAnimations() {
-        for (var i = 0; i < 6; i++) { // six states
-            this.animations.push([]);
-
-        }
-    };
+      animations.push(
+        new Animator(
+          AssetManager.getAsset("./sprites/reddragonflyright0.png",
+            this.x, this.y,
+            this.sizeX, this.sizeY,
+            this.frameCount, this.frameDuration,
+            this.framePadding,
+            false, true
+          )
+        );
+      )
+      animations.push(
+        new Animator(
+          AssetManager.getAsset("./sprites/reddragonflydown1.png",
+            this.x, this.y,
+            this.sizeX, this.sizeY,
+            this.frameCount, this.frameDuration,
+            this.framePadding,
+            false, true
+          )
+        );
+      )
+      animations.push(
+        new Animator(
+          AssetManager.getAsset("./sprites/reddragonflyleft2.png",
+            this.x, this.y,
+            this.sizeX, this.sizeY,
+            this.frameCount, this.frameDuration,
+            this.framePadding,
+            false, true
+          )
+        );
+      )
+      animations.push(
+        new Animator(
+          AssetManager.getAsset("./sprites/reddragonflyup3.png",
+            this.x, this.y,
+            this.sizeX, this.sizeY,
+            this.frameCount, this.frameDuration,
+            this.framePadding,
+            false, true
+          )
+        );
+      )
+    }
+}
