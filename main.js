@@ -3,16 +3,20 @@ var gameEngine = new GameEngine();
 var ASSET_MANAGER = new AssetManager();
 
 // downloading stuff
-AssetManager.queueDownload("./sprites/reddragonflyright0.png")
-AssetManager.queueDownload("./sprites/reddragonflydown1.png")
-AssetManager.queueDownload("./sprites/reddragonflyleft2.png")
-AssetManager.queueDownload("./sprites/reddragonflyup3.png")
+AssetManager.queueDownload("./sprites/reddragonflyright0.png");
+AssetManager.queueDownload("./sprites/reddragonflydown1.png");
+AssetManager.queueDownload("./sprites/reddragonflyleft2.png");
+AssetManager.queueDownload("./sprites/reddragonflyup3.png");
 
 ASSET_MANAGER.downloadAll(function () {
+	var gameEngine = new GameEngine();
+
+	PARAMS.BLOCKWIDTH = PARAMS.BITWIDTH * PARAMS.SCALE;
+
 	var canvas = document.getElementById('gameWorld');
 	var ctx = canvas.getContext('2d');
 
-	// PARAMS.CANVAS_WIDTH = canvas.width;
+	PARAMS.CANVAS_WIDTH = canvas.width;
 
 	gameEngine.init(ctx);
 
