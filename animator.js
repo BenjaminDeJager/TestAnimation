@@ -8,30 +8,16 @@ class Animator {
     };
 
     drawFrame(tick, ctx, x, y, scale) {
-        this.elapsedTime += tick;
-
-        if (this.isDone()) {
-            if (this.loop) {
-                this.elapsedTime -= this.totalTime;
-            } else {
-                return;
-            }
-        }
+        //console.log("drawing frame");
+        this.elapsedTime += tick
 
         let frame = this.currentFrame();
-        if (this.reverse) frame = this.frameCount - frame - 1;
-
         ctx.drawImage(this.spritesheet,
             this.xStart + frame * (this.width + this.framePadding), this.yStart, //source from sheet
             this.width, this.height,
             x, y,
             this.width * scale,
             this.height * scale);
-
-        if (PARAMS.DEBUG) {
-            ctx.strokeStyle = 'Green';
-            ctx.strokeRect(x, y, this.width * scale, this.height * scale);
-        }
     };
 
     currentFrame() {
