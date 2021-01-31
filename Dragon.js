@@ -1,5 +1,7 @@
 class Dragon {
     constructor(game, x, y) {
+
+      //hahahshjdljlajtrsl
         Object.assign(this, { game, x, y });
         this.x = x;
         this.y = y;
